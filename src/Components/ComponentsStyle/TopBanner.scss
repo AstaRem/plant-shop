@@ -1,0 +1,15 @@
+@use 'sass:color';
+$green: #50806B;
+$bggreen: #e8edde;
+$lgreen: #5bc08A;
+$black: #000;
+$red: #d11f1f;
+$textgrey: #7C8087;
+$white: #fff;
+
+.green-bg{
+    background-color: $green;
+    width: 100%;
+    min-height: 45px;
+    color: $white;
+}
