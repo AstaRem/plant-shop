@@ -1,14 +1,17 @@
-$green: #50806B;
-$bggreen: #e8edde;
-$lgreen: #5bc08A;
-$black: #000;
-$red: #d11f1f;
-$textgrey: #7C8087;
-$white: #fff;
+.leaf {
+    background-image: url('../../assets/hero-plant-l.png'), url('../../assets/hero-plant-r.png');
+    background-repeat: no-repeat, no-repeat;
+    background-position: left bottom -20px, right bottom -20px;
+    max-width: 1600px;
+    margin: 0 auto;
+}
 
 
 .hero{
     min-height: 710px;
+    // background-image: url('../../assets/hero-plant-l.png'), url('../../assets/hero-plant-r.png');
+    // background-repeat: no-repeat, no-repeat;
+    // background-position: left bottom -20px, right bottom -20px;
 
     &-mid{
         background: rgba(80, 128, 107, 0.2);
@@ -24,17 +27,25 @@ $white: #fff;
 
         .main-title {
             font-weight: 600;
-            font-size: 80px;
+            // font-size: 80px;
+            font-size: clamp(40px, 10vw, 80px);
             line-height: 1;
             letter-spacing: 0.03em;
         }
 
         .slogan{
             font-weight: 400;
-            font-size: 22px;
+            // font-size: 22px;
+            font-size: clamp(16px, 3vw, 22px);
             line-height: 1.5;
             max-width: 430px;
+            margin: 30px auto 38px auto;
         }
 
     }
+}
+
+.dark-line {
+    background-color: $green;
+    min-height: 40px
 }
