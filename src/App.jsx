@@ -2,8 +2,8 @@
 
 import Header from "./Components/Header"
 import Hero from "./Components/Hero"
+import SectionCategories from "./Components/SectionCategories"
 import TopBanner from "./Components/TopBanner"
-import Title from "./Components/Title"
 
 function App() {
 
@@ -13,7 +13,7 @@ function App() {
         <TopBanner />
         <Header />
         <Hero />
-        <Title text1='shop' text2='by category' showLink={true}/>
+        <SectionCategories />
 
     </>
 
