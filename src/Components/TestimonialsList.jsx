@@ -15,6 +15,7 @@ export default function TestimonialsList() {
                 {
                     testimonials.map((card) => (
                         <TestimonialsCard
+                        
                             key={card.id}
                             imageSrc={card.imageSrc}
                             name={card.name}
