@@ -1,7 +1,8 @@
-import logo from '../assets/logo.svg'
-import cart from '../assets/cart.svg'
-import search from '../assets/search.svg'
-import './ComponentsStyle/header.scss'
+import logo from '../../assets/logo.svg'
+import cart from '../../assets/cart.svg'
+import search from '../../assets/search.svg'
+import '../ComponentsStyle/header.scss'
+import { Link, NavLink } from 'react-router-dom'
 
 export default function Header(){
 
@@ -10,10 +11,10 @@ export default function Header(){
         <div className="wrapper header">
             <a href="#" ><img src={logo} alt="logo" /></a>
             <nav className="header-nav">
-                <a href="#">Home</a>
-                <a href="#">Products</a>
-                <a href="#">About Us</a>
-                <a href="#">Contact</a>
+                <NavLink to="/">Home</NavLink >
+                <NavLink to="/products">Products</NavLink >
+                <NavLink to="/about">About Us</NavLink >
+                <NavLink to="/contact">Contact</NavLink >
             </nav>
 
             <div className='header-side'>
@@ -22,7 +23,7 @@ export default function Header(){
                 </div>
 
                 <div className='side-cart'>
-                       <a href='#'><img src={cart} alt='cart'></img></a>
+                       <Link to="/cart" href='#'><img src={cart} alt='cart'></img></Link>
                 </div>
 
             </div>

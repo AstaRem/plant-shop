@@ -1,8 +1,9 @@
+import { Link } from 'react-router-dom';
 import './ComponentsStyle/button.scss';
 
-export default function Button({className, href='#', children }){
+export default function Button({className, to = '/', children }){
 
     return (
-        <a href={href} className={`button ${className}` } >{children}</a>
+        <Link to={to} className={`button ${className}` } >{children}</Link>
     )
 }

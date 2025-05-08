@@ -1,22 +1,27 @@
-import { Outlet } from "react-router-dom";
-import Header from "../Header";
-import TopBanner from "../TopBanner";
-import Footer from "../Footer";
+import { Outlet, useLocation } from "react-router-dom";
+import Header from "./Header";
+import TopBanner from "./TopBanner";
+import Footer from "./Footer";
 
 export default function Layout(){
 
-    return(
-        <div>
-            <>
-                <TopBanner />
-                <Header />
-            </>
+    const location = useLocation();
+    const isHomePage = location.pathname === '/';
 
-            <main>
+    return(
+        <div className="container">
+            <div>
+            <TopBanner />
+                <Header />
+
+            </div>
+            
+
+            <main className="main-content">
                 <Outlet />
             </main>
 
-            <Footer />
+            <Footer isHomePage={isHomePage}/>
 
         </div>
     )
