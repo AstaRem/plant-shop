@@ -4,7 +4,7 @@ import DataHandler from '../utils/DataHandler';
 import './ComponentsStyle/PlantCardList.scss';
 import PlantCard from './PlantCard';
 
-export default function PlantCardList({ filterType, limit }) {
+export default function PlantCardList({ filterType='', limit=0 }) {
 
     const { plants, loading, error } = usePlants();
     const getFilteredPlants = plants => {
@@ -16,6 +16,14 @@ export default function PlantCardList({ filterType, limit }) {
         } else if (filterType === 'deals') {
             filtered.sort((a, b) => 
                 b.discount - a.discount
+            )
+        } else if (filterType === 'price-high') {
+            filtered.sort((a, b) => 
+                b.price - a.price
+            )
+        } else if (filterType === 'price-low') {
+            filtered.sort((a, b) => 
+                a.price - b.price
             )
         }
 
@@ -30,7 +38,7 @@ export default function PlantCardList({ filterType, limit }) {
             <DataHandler loading={loading} error={error}>
                 {
                     filteredPlants.map(p => (
-                        <PlantCard key={p.id} imageSrc={p.imageSrc} title={p.title} price={p.price} discount={p.discount}/>
+                        <PlantCard key={p.id} imageSrc={p.imageSrc} title={p.title} price={p.price} discount={p.discount} plantId={p.id}/>
                     ))
                 }
             </DataHandler>
