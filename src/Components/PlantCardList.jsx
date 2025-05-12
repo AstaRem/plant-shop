@@ -1,4 +1,5 @@
 
+import { useLocation } from 'react-router-dom';
 import usePlants from '../hooks/usePlants';
 import DataHandler from '../utils/DataHandler';
 import './ComponentsStyle/PlantCardList.scss';
@@ -7,6 +8,8 @@ import PlantCard from './PlantCard';
 export default function PlantCardList({ filterType='', limit=0 }) {
 
     const { plants, loading, error } = usePlants();
+    const location= useLocation();
+
     const getFilteredPlants = plants => {
         let filtered = plants;
         if (filterType === 'hot') {
@@ -33,17 +36,30 @@ export default function PlantCardList({ filterType='', limit=0 }) {
     const filteredPlants = getFilteredPlants(plants);
     console.log(filteredPlants);
 
-    return (
-        <div className="plant-card-list">
-            <DataHandler loading={loading} error={error}>
-                {
-                    filteredPlants.map(p => (
-                        <PlantCard key={p.id} imageSrc={p.imageSrc} title={p.title} price={p.price} discount={p.discount} plantId={p.id}/>
-                    ))
-                }
-            </DataHandler>
+    const totalPlants = filteredPlants.length;
+    const allPlants = plants.length;
 
-        </div>
+    return (
+        <>
+            {
+            
+            location.pathname == '/products' && (
+                <p className="plants-counter">Showing {totalPlants} of {allPlants} Products</p>
+            )
+
+            }
+            <div className="plant-card-list">
+                <DataHandler loading={loading} error={error}>
+                    {
+                        filteredPlants.map(p => (
+                            <PlantCard key={p.id} imageSrc={p.imageSrc} title={p.title} price={p.price} discount={p.discount} plantId={p.id}/>
+                        ))
+                    }
+                </DataHandler>
+
+            </div>
+
+        </>
 
     )
 }

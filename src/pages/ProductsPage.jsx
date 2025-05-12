@@ -2,6 +2,7 @@ import './pageStyles/productsPage.scss';
 import SecondTitle from "../Components/SecondTitle";
 import PlantCardList from '../Components/PlantCardList';
 import { useState } from 'react';
+import CategoryFilter from '../Components/CategoryFilter';
 
 export default function ProductsPage() {
 
@@ -19,7 +20,7 @@ export default function ProductsPage() {
             <SecondTitle big='Shop' small='Find the perfect plant for your space' />
             <div className="wrapper products-container">
                 <aside className="aside">
-                    Aside
+                    <CategoryFilter />
                 </aside>
 
                 <div className="cards-container">

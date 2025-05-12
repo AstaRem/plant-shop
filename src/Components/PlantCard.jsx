@@ -43,7 +43,7 @@ export default function PlantCard({ imageSrc, title, price, discount, plantId })
                 </div>
             </Link>
 
-            <Button className={"green-btn"} >
+            <Button className="green-btn" >
                 Buy
             </Button>
         </div>
