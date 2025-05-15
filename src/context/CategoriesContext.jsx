@@ -5,7 +5,7 @@ import useFetch from "../hooks/useFetch";
 const CategoriesContext = createContext();
 
 export function CategoriesProvider({children}){
-    const { data: categories, loading, error } = useFetch('https://gist.githubusercontent.com/AlinaLukosenkina/053cec8f2ff150b6b10be1147311df4d/raw/d8bddf8a7aa4be43e5afc27fe6c2a21daff58768/data-category.json', 
+    const { data: categories, loading, error } = useFetch('https://gist.githubusercontent.com/AstaRem/6f16284ce89a1dfef971a576ba587d76/raw/f9ea0d7ae0f515e4cc4853066bdc89c2e056cafd/data-category.json', 
         'categories', 
         'fileName');
 const value = {categories, loading, error};
