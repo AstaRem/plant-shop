@@ -15,7 +15,12 @@ export default function CategoriesList() {
                 error={error}
             >
                 {categories.map(elem => (
-                    <CategoryCard imageSrc={elem.imageSrc} title={elem.title} key={elem.id}></CategoryCard>
+                    <CategoryCard 
+                    imageSrc={elem.imageSrc} 
+                    title={elem.title} 
+                    key={elem.id} 
+                    categoryId={elem.id}
+                    />
                 ))}
             </DataHandler>
         </div>

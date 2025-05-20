@@ -1,9 +1,10 @@
 import './pageStyles/productsPage.scss';
 import SecondTitle from "../Components/SecondTitle";
 import PlantCardList from '../Components/PlantCardList';
-import { useState } from 'react';
+import { useState, useEffect} from 'react';
 import CategoryFilter from '../Components/CategoryFilter';
 import PriceFilter from '../Components/PriceFilter';
+import { useSearchParams } from 'react-router-dom';
 
 export default function ProductsPage() {
 
@@ -11,12 +12,23 @@ export default function ProductsPage() {
     const [selectedCategories, setSelectedCategories] = useState([]);
     const [ priceRange, setPriceRange] = useState([0, Infinity]);
 
+    //nuskaito parametrus is URL del category filtru
+    const [searchParamas, setSearchParams] = useSearchParams();
+
+    useEffect(() => {
+        const category = searchParamas.get('category');
+        if(category && !selectedCategories.includes(category)){
+            setSelectedCategories([Number(category)]);
+        }
+    }, [searchParamas]);
+
     const handleSortChange = (event) => {
         setSortType(event.target.value);
     }
 
     const handleCategoryChange = (categories) => {
         setSelectedCategories(categories || []);
+        setSearchParams({category: categories[0] || ''});
     }
 
     // to refresh the price
@@ -31,7 +43,10 @@ export default function ProductsPage() {
             <SecondTitle big='Shop' small='Find the perfect plant for your space' />
             <div className="wrapper products-container">
                 <aside className="aside">
-                    <CategoryFilter onCategoryChange={handleCategoryChange}/>
+                    <CategoryFilter 
+                    onCategoryChange={handleCategoryChange}
+                    selectedCategories={selectedCategories}
+                    />
                     <PriceFilter onPriceChange={handlePriceChange}/>
                 </aside>
 

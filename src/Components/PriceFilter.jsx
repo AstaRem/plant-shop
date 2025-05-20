@@ -61,7 +61,7 @@ export default function PriceFilter({onPriceChange}){
                         range 
                         min={0} 
                         max={maxPrice} 
-                        style={sliderStyles}
+                        // style={sliderStyles}
                         value={priceRange}
                         onChange={handlePriceChange}
                     />

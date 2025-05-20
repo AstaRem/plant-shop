@@ -1,6 +1,6 @@
 import PacmanLoader from "react-spinners/PacmanLoader";
 
-export default function DataHandler ({loading, error, children}) {
+export default function DataHandler ({loading, error, children, noData}) {
 
         if(loading){
             return (<PacmanLoader
@@ -11,6 +11,9 @@ export default function DataHandler ({loading, error, children}) {
         }
         if(error){
             return (<>Error: {error}</>);
+        }
+        if(noData){
+            return(<div className="example">Plant not found</div>)
         }
         return (children);
 }
