@@ -10,7 +10,7 @@ createRoot(document.getElementById('root')).render(
     <PlantsProvider >
         <CategoriesProvider >
 
-            <BrowserRouter >
+            <BrowserRouter basename="/plant-shop">
                 <App />
 
             </BrowserRouter>
